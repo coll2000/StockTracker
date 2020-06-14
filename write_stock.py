@@ -33,4 +33,3 @@ def write_stock_info(name):
     else:
         print("ERROR")
 
-# write_stock_info("TSLA")
