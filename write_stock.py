@@ -13,18 +13,24 @@ print("Today's Date: ", current_date)  # prints today's date
 print("This time last week: ", last_week_date)  # prints last week's date (7 days ago)
 
 
-def write_stock_info(stock_name):
-    stocks = ['GBPUSD=X',
-              'EURUSD=X',
-              'EURGBP=X',
-              'TSLA',
-              'BTC-USD']
-    if stock_name in stocks:
-        df = web.DataReader(stock_name, 'yahoo', last_week_date, current_date)
+def get_currency_pairs():
+    return ['GBPUSD=X',
+            'EURUSD=X',
+            'EURGBP=X']
+
+
+def get_stock():
+    return ['TSLA', 'BTC-USD']
+
+
+def write_stock_info(name):
+    pairs = get_currency_pairs()
+    stocks = get_stock()
+    if name in pairs or stocks:
+        df = web.DataReader(name, 'yahoo', last_week_date, current_date)
         print(df.head())
-        df.to_csv('CSV/' + stock_name + '.csv')
+        df.to_csv('CSV/' + name + '.csv')
     else:
-        print("The code-name ", stock_name, " is not supported at the moment.")
+        print("The code-name ", name, " is not supported at the moment.")
 
-
-write_stock_info("TSLA")
+# write_stock_info("TSLA")
