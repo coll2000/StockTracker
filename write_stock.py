@@ -31,6 +31,6 @@ def write_stock_info(name):
         print(df.head())
         df.to_csv('CSV/' + name + '.csv')
     else:
-        print("The code-name ", name, " is not supported at the moment.")
+        print("ERROR")
 
 # write_stock_info("TSLA")
