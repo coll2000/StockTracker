@@ -47,7 +47,6 @@ def save(stock_info, selected_stock_name):
         new_file.write(str(contents))
         new_file.close()
 
-
 b = tk.Button(win, text="OK", command=callback)
 b.pack()
 
